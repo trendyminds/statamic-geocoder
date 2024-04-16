@@ -22,6 +22,9 @@ export default {
 	mixins: [Fieldtype],
 
 	mounted() {
+		// Initialize the Google Maps API
+		this.loadGoogleMaps()
+
 		this.autocomplete = null
 		this.map = null
 		this.marker = null
@@ -31,6 +34,16 @@ export default {
 	},
 
 	methods: {
+		loadGoogleMaps() {
+			let gs = document.createElement('script')
+			gs.setAttribute(
+				'src',
+				`https://maps.googleapis.com/maps/api/js?key=${window.geocoder_key}&loading=async&libraries=places&callback=initMap`
+			)
+			gs.setAttribute('async', true)
+			document.head.appendChild(gs)
+		},
+
 		initMap() {
 			// Initialize Places autocomplete
 			this.autocomplete = new google.maps.places.Autocomplete(
