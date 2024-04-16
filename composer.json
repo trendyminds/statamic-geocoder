@@ -1,0 +1,36 @@
+{
+    "name": "trendyminds/statamic-geocoder",
+    "description": "Geocode your Statamic content using Google Maps Places autocomplete",
+    "version": "1.0.0",
+    "require": {
+        "php": "^8.1",
+        "statamic/cms": "^4.0"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pixelfear/composer-dist-plugin": true
+        }
+    },
+    "require-dev": {
+        "laravel/pint": "^1.14"
+    },
+    "autoload": {
+        "psr-4": {
+            "Trendyminds\\Geocoder\\": "src"
+        }
+    },
+    "extra": {
+        "statamic": {
+            "name": "Geocoder",
+            "description": "Geocode your Statamic content using Google Maps Places autocomplete"
+        },
+        "laravel": {
+            "providers": [
+                "Trendyminds\\Geocoder\\ServiceProvider"
+            ]
+        }
+    }
+}
