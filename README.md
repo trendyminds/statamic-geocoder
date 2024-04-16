@@ -2,7 +2,7 @@
 
 Geocode your Statamic content using Google Maps Places autocomplete
 
-![docs/field.png](Using the Places autocomplete to geolocate a location)
+![Using the Places autocomplete to geolocate a location](docs/field.png)
 
 ## How to Install
 
