@@ -2,6 +2,7 @@
     "name": "trendyminds/statamic-geocoder",
     "description": "Geocode your Statamic content using Google Maps Places autocomplete",
     "version": "1.0.0",
+    "license": "MIT",
     "require": {
         "php": "^8.1",
         "statamic/cms": "^4.0"
