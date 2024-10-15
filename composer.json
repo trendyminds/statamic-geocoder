@@ -1,7 +1,7 @@
 {
     "name": "trendyminds/statamic-geocoder",
     "description": "Geocode your Statamic content using Google Maps Places autocomplete",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "license": "MIT",
     "require": {
         "php": "^8.2",

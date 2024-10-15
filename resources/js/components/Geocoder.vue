@@ -1,8 +1,8 @@
 <template>
 	<div>
-		<text-input ref="mapfield" :value="value.place" />
+		<text-input ref="mapfield" :value="value?.place" />
 		<button
-			v-if="value.place"
+			v-if="value?.place"
 			class="flex btn btn-xs mt-2 gap-2"
 			aria-label="Reset location"
 			@click="reset"
@@ -11,7 +11,7 @@
 			<span>Clear location</span>
 		</button>
 
-		<div :class="{ 'sr-only': !value.place }">
+		<div :class="{ 'sr-only': !value?.place }">
 			<div ref="googlemap" class="mt-4 rounded-lg" style="height: 500px"></div>
 		</div>
 	</div>
@@ -58,13 +58,17 @@ export default {
 			this.map = new google.maps.Map(this.$refs.googlemap, {
 				zoom: 12,
 				center: {
-					lat: this.value.lat ?? 39.7684,
-					lng: this.value.lng ?? -86.1581,
+					lat: this.value?.lat ?? 39.7684,
+					lng: this.value?.lng ?? -86.1581,
 				},
 				mapTypeControl: false,
 				fullscreenControl: false,
 				streetViewControl: false,
 			})
+
+			if (! this.value) {
+				return;
+			}
 
 			// Add the marker to the map
 			this.marker = new google.maps.Marker({
@@ -112,7 +116,10 @@ export default {
 			})
 
 			// Remove the old marker and add a new one
-			this.marker.setMap(null)
+			if (this.marker) {
+				this.marker.setMap(null)
+			}
+
 			this.marker = new google.maps.Marker({
 				draggable: true,
 				position: new google.maps.LatLng(
@@ -169,14 +176,14 @@ export default {
 
 	data() {
 		return {
-			name: this.value.name,
-			place: this.value.place,
-			lat: this.value.lat,
-			lng: this.value.lng,
-			address: this.value.address,
-			city: this.value.city,
-			state: this.value.state,
-			zip: this.value.zip,
+			name: this.value?.name,
+			place: this.value?.place,
+			lat: this.value?.lat,
+			lng: this.value?.lng,
+			address: this.value?.address,
+			city: this.value?.city,
+			state: this.value?.state,
+			zip: this.value?.zip,
 		}
 	},
 }
